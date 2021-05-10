@@ -1,3 +1,4 @@
+import * as iam from '@aws-cdk/aws-iam';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as cdk from '@aws-cdk/core';
 
@@ -36,5 +37,7 @@ export class CdkStarterStack extends cdk.Stack {
         },
       ],
     });
+
+    s3Bucket.grantRead(new iam.AccountRootPrincipal());
   }
 }
